@@ -1,0 +1,48 @@
+package equalshashcode;
+
+public class Employee {
+	
+	private int id;
+	private String name;
+	private int salary;
+
+	public Employee(int id, String name, int salary) {
+		this.id = id;
+		this.name = name;
+		this.salary = salary;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+//equals() ko tum kisi bhi type ka object de sakte ho:
+		System.out.println("in equals");
+
+		if (obj == null) {
+			return false;
+		}
+//Kya ye object kisi particular class ka object hai?
+		if (!(obj instanceof Employee)) {
+			return false;
+		}
+
+		Employee e = (Employee) obj;
+
+		boolean b = this.id == e.id && this.name.equals(e.name) && this.salary == e.salary;
+
+		return b;
+
+	}
+
+	@Override
+	public int hashCode() {
+		System.out.println("in hascode");
+		String str = id + name + salary;
+		return str.hashCode();
+	}
+
+	@Override
+	public String toString() {
+		String str = id + " " + name + " " + salary;
+		return str;
+	}
+}
