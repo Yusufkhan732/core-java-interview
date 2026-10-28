@@ -1,14 +1,14 @@
 package thread;
 
 public class TestRunnableThread {
-	
+
 	public static void main(String[] args) {
 
-		Thread t1 = new Thread(new RunnableThread("abc"));
+		Thread t1 = new Thread(new ByRunnable("abc"));
 
-		Thread t2 = new Thread(new RunnableThread("xyz"));
+		Thread t2 = new Thread(new ByRunnable("xyz"));
 
-		t1.start();
-		t2.start();
+		t1.run();
+		t2.run();
 	}
 }
